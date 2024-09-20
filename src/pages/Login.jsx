@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@blueprintjs/core";
 
 import '../styles/Registration.scss';
-import { createUserWithEmailAndPassword,onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,onAuthStateChanged, signOut,  } from "firebase/auth";
 import { auth } from "../../firebase.config";
 
 export default function Registration(){

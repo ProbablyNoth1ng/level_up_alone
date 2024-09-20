@@ -3,20 +3,22 @@ import '../styles/Main.scss'
 import BlockItem from '../components/BlockItem'
 import { useSelector,useDispatch } from "react-redux";
 import { addBlock, removeBlock, updateBlock } from "../store/blockSlice";
+import { reactHooksModule } from "@reduxjs/toolkit/query/react";
 export default function Main(){
 
     const dispatch = useDispatch();
     const blocks = useSelector((state) => state.blocks.blocks);
 
-    const [newTitle, setNewTitle] = React.useState("Missiondddddddddddddddasdasd1ddd")
-    const [newSubtitle, setNewSubtitle] = React.useState("aaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaiption aaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaassssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption ------- ")
+    const [newTitle, setNewTitle] = useState("Missiondddddddddddddddasdasd1ddd")
+    const [newSubtitle, setNewSubtitle] = useState("aaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaiption aaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaassssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption descrsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiption ------- ")
+    const [newEmoji, setNewEmoji] = useState('😊')
 
     const [opened, setOpened] = useState(false);
     const [clickedBlock, setClickedBlock] = useState();
 
 
     const handleAddBlock = () => {
-        dispatch(addBlock({title:newTitle,subtitle:newSubtitle}));
+        dispatch(addBlock({title:newTitle,subtitle:newSubtitle,emoji:newEmoji}));
 
     }
 
@@ -25,7 +27,7 @@ export default function Main(){
     }
 
     const handleUpdateBlock = (id) => {
-        dispatch(updateBlock({id, changes: {title:newTitle,subtitle:newSubtitle}}))
+        dispatch(updateBlock({id, changes: {title:newTitle,subtitle:newSubtitle,emoji:newEmoji}}))
     }
 
     function blockOpen(e){
@@ -40,15 +42,9 @@ export default function Main(){
     function close(){
         console.log(clickedBlock)
         clickedBlock.classList.remove('opened');
-
         setClickedBlock('')
         setOpened(false)
-       
-        
-       
-        console.log('closeedd')
-      
-        
+        console.log('block closed')
         document.querySelector('#body').classList.remove('lock');
    }
     return (
@@ -78,6 +74,8 @@ export default function Main(){
                     onChange={(e) => setCount(Number(e.target.value))}
                     /> */}
                     {/* <button onClick={addElements}>Add {1} Elements</button> */}
+
+
                     {blocks.map((block) => (
                         
                             <div className={`block p-6 cursor-pointer  `} onClick={!opened ? blockOpen : ''}> 

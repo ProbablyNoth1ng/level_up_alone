@@ -4,6 +4,11 @@ import BlockItem from '../components/BlockItem'
 import { useSelector,useDispatch } from "react-redux";
 import { addBlock, removeBlock, updateBlock } from "../store/blockSlice";
 import { reactHooksModule } from "@reduxjs/toolkit/query/react";
+import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword,onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase.config";
+
+
 export default function Main(){
 
     const dispatch = useDispatch();
@@ -15,7 +20,7 @@ export default function Main(){
 
     const [opened, setOpened] = useState(false);
     const [clickedBlock, setClickedBlock] = useState();
-
+    const navigate = useNavigate();
 
     const handleAddBlock = () => {
         dispatch(addBlock({title:newTitle,subtitle:newSubtitle,emoji:newEmoji}));
@@ -47,6 +52,12 @@ export default function Main(){
         console.log('block closed')
         document.querySelector('#body').classList.remove('lock');
    }
+
+    function logout() {
+    console.log('loged out')
+     signOut(auth)
+     navigate('/Login')
+    }
     return (
         <>
    
@@ -60,22 +71,7 @@ export default function Main(){
                                     <p className="text-xl text-center">123</p>
                                     
                 </div>
-               
-                {/* <div className={`block p-6 cursor-pointer  `} onClick={!opened ? blockOpen : ''}> 
-                    <h3 className="title text-3xl flex justify-center pb-3">title</h3>
-                    <p className="text-xl text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi magnam accusamus tempore dignissimos corrupti atque voluptatibus earum, facilis ipsum assumenda?</p>
-                    
-                </div> */}
-              
-                    {/* <input
-                    type="number"
-                    min="1"
-                    value={count}
-                    onChange={(e) => setCount(Number(e.target.value))}
-                    /> */}
-                    {/* <button onClick={addElements}>Add {1} Elements</button> */}
-
-
+            
                     {blocks.map((block) => (
                         
                             <div className={`block p-6 cursor-pointer  `} onClick={!opened ? blockOpen : ''}> 
@@ -95,7 +91,7 @@ export default function Main(){
 
               
 
-
+                    <button className="logout" onClick={logout}>logout</button>
             </main>
 
         </>

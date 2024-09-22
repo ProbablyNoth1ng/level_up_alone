@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@blueprintjs/core";
 
 import '../styles/Registration.scss';
-import { createUserWithEmailAndPassword,onAuthStateChanged, signOut,  } from "firebase/auth";
+import { createUserWithEmailAndPassword,onAuthStateChanged, signOut,signInWithEmailAndPassword  } from "firebase/auth";
 import { auth } from "../../firebase.config";
+import { useNavigate } from 'react-router-dom';
 
 export default function Registration(){
     const [user,setUser] = useState(null);
@@ -12,7 +13,7 @@ export default function Registration(){
     const [loginPassword,setLoginPassword] = useState();
     const [loginError,setLoginError] = useState();    
     const [haveAcc,setHaveAcc] = useState(false);
-
+    const navigate = useNavigate();
     
     async function login() {
         try {
@@ -33,11 +34,24 @@ export default function Registration(){
         console.log(haveAcc)
     },[])
 
+
+    const handleRedirect = () =>{
+        navigate('/')
+    }
     return (
         <> 
 
-           
-            
+    <div>
+                    {!!user && (
+                        handleRedirect()
+                    // <div>logged in  { user.email}
+                    // <button className="button" onClick={logout}>log out</button>
+                    // </div> 
+                    )}
+
+
+                 {!user  && 
+                ( 
                  <div className="registration login">
                    
                     <div className="registration__wrapper login__wrapper flex flex-col justify-center mx-auto ">
@@ -61,11 +75,13 @@ export default function Registration(){
                         <div className="flex justify-center mt-20"><button formAction="submit" className="submit button " onClick={login}>Login</button></div>
                     </div>
                  </div>
-         
-           
+                )
+            }
+           </div>
 
             
         
         </>
     )
 }
+

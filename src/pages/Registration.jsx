@@ -3,7 +3,7 @@ import '../styles/Registration.scss';
 import { BrowserRouter as Router, Routes, Route , Link} from 'react-router-dom';
 import { createUserWithEmailAndPassword,onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.config";
-
+import { useNavigate } from "react-router-dom";
 export default function Registration(){
     const [user,setUser] = useState(null);
     const [haveAcc, setHaveAcc] = useState()
@@ -16,7 +16,7 @@ export default function Registration(){
     const [registerPassword1,setRegisterPassword1] = useState();
 
     
-    
+    const navigate = useNavigate();
 
     
     async function register(){
@@ -45,17 +45,19 @@ export default function Registration(){
         })
         
     },[])
-
+    const handleRedirect = () =>{
+        navigate('/')
+    }
     return (
         <> 
 
             <div>
                 {!!user && (
-                    <div>logged in  { user.email}
-                    <button className="button" onClick={logout}>log out</button>
-                    </div> )}
-
-
+                    // <div>logged in  { user.email}
+                    // <button className="button" onClick={logout}>log out</button>
+                    // </div> )}
+                    handleRedirect()
+                    )}
                  {!user  && 
                 ( 
                 <div className="registration ">

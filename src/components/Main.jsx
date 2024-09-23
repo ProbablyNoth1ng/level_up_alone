@@ -79,17 +79,12 @@ export default function Main(){
                                <BlockItem  blockId={block.id}   />
 
                             </div>
-
-                                    
                     ))}
               
                 < div className="add__block flex justify-center items-center cursor-pointer "  onClick={handleAddBlock}>
                     <i class="fa-solid fa-plus"></i>
                 </div>
                 <i class={`fa-solid fa-xmark close ${opened ? '' : 'hidden'}`} onClick={close}></i>
-
-
-              
 
                     <button className="logout" onClick={logout}>logout</button>
             </main>

@@ -12,11 +12,10 @@ app.get( '/' , (req,res) => {
 
 
 const connection = mysql.createConnection({
-    host: '',
-    user: '',
-    password: '', 
-    database: '',
-
+    host: 'sql7.freesqldatabase.com',
+    user: 'sql7731853',
+    password: 'VP5Fp4wk1H', 
+  
   });
 
 connection.connect((err) => {

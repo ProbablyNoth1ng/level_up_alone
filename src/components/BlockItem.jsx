@@ -64,7 +64,7 @@ export default function BlockItem({blockId }){
         <>
             <div className="block__icon text-5xl text-center prevent " onClick={() =>  setShowPicker(!showPicker) }  >
                 {block.emoji}
-                {/* {<Emoji unified={block.emoji }   size="25 "   />}  */}
+           
             </div>
            {showPicker &&  <div className="picker__wrapper flex justify-center pt-3"> <EmojiPicker  emojiStyle="native" onEmojiClick={onEmojiClick} className=" " /></div> }
            

@@ -4,6 +4,8 @@ import ava from '../assets/80178693d1d0c7e0ec688707b02ecc0b.jpg'
 import coin from '../assets/coin.png'
 import boost from '../assets/boost.png'
 import store from '../assets/shop.png'
+import Market from  '../pages/Market'
+import { Link } from "react-router-dom";
 
 export default function Nav(){
     return (
@@ -38,7 +40,11 @@ export default function Nav(){
                         <p className="text-black text-3xl font-bold">12h</p>
                     </div>
                     <div className="store__section flex items-center">
-                        <img src={store} alt="store" className="" />
+                    <Link to={'/Market'}>
+                        
+                            <img src={store} alt="store" className="" />
+                        
+                    </Link>
                     </div>
                 </div>
 

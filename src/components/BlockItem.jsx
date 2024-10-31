@@ -4,11 +4,13 @@ import ContentEditable from 'react-contenteditable';
 import WeekAccomplishments from './WeekAccomplishments';
 import { useDispatch, useSelector } from "react-redux";
 import { updateBlock } from "../store/blockSlice";
+import { updateStateTrue, updateStateFalse } from '../store/emojiSlice';
 import EmojiPicker, { Emoji } from 'emoji-picker-react';
 import '../styles/BlockItem.scss'
 import { IconSize } from "@blueprintjs/icons";
 
 export default function BlockItem({blockId }){
+    const isOpened = useSelector((state) => state.emoji.opened);
     const [showPicker, setShowPicker] = useState(false);
     const dispatch = useDispatch();
     const block = useSelector((state) =>{
@@ -38,7 +40,6 @@ export default function BlockItem({blockId }){
 			allowedTags: ["b", "i", "a", "p"],
 			allowedAttributes: { a: ["href"] }
 		};
-
 		const newSubtitle = (sanitizeHtml(evt.currentTarget.innerHTML, sanitizeConf))
 		dispatch(updateBlock({
             id:block.id,
@@ -58,15 +59,16 @@ export default function BlockItem({blockId }){
 
     const onEmojiClick = (emojiObject) => {
         onEmojiChange(emojiObject.emoji)
-        setShowPicker(false);
+        dispatch(updateStateFalse()) 
     }
     return (
         <>
-            <div className="block__icon text-5xl text-center prevent " onClick={() =>  setShowPicker(!showPicker) }  >
+            
+            <div className={`block__icon text-5xl text-center prevent `}  onClick={() =>  dispatch(updateStateTrue()) }  >
                 {block.emoji}
            
             </div>
-           {showPicker &&  <div className="picker__wrapper flex justify-center pt-3"> <EmojiPicker  emojiStyle="native" onEmojiClick={onEmojiClick} className=" " /></div> }
+           {isOpened &&  <div className="picker__wrapper flex justify-center pt-3"> <EmojiPicker  emojiStyle="native" onEmojiClick={onEmojiClick} className={`${isOpened ? 'visible' : 'hidden'}`} /></div> }
            
             <ContentEditable
                 className="title text-3xl text-center mx-auto  pb-3 mission__title wrap"

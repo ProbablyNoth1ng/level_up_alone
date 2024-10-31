@@ -3,6 +3,7 @@ import '../styles/Main.scss'
 import BlockItem from '../components/BlockItem'
 import { useSelector,useDispatch } from "react-redux";
 import { addBlock, removeBlock, updateBlock } from "../store/blockSlice";
+import { updateStateFalse  } from "../store/emojiSlice";
 import { reactHooksModule } from "@reduxjs/toolkit/query/react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword,onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
@@ -51,6 +52,7 @@ export default function Main(){
         setOpened(false)
         console.log('block closed')
         document.querySelector('#body').classList.remove('lock');
+        dispatch(updateStateFalse())
    }
 
     function logout() {
@@ -74,14 +76,14 @@ export default function Main(){
             
                     {blocks.map((block) => (
                         
-                            <div className={`block p-6 cursor-pointer  `} onClick={!opened ? blockOpen : ''}> 
+                            <div className={`block p-6 cursor-pointer ${block.id} `} onClick={!opened ? blockOpen : ''}> 
                             
                                <BlockItem  blockId={block.id}   />
 
                             </div>
                     ))}
               
-                < div className="add__block flex justify-center items-center cursor-pointer "  onClick={handleAddBlock}>
+                < div className="add__block flex justify-center items-center cursor-pointer vi"  onClick={handleAddBlock}>
                     <i class="fa-solid fa-plus"></i>
                 </div>
                 <i class={`fa-solid fa-xmark close ${opened ? '' : 'hidden'}`} onClick={close}></i>

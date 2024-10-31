@@ -1,30 +1,45 @@
 import express from "express";
-import mysql from 'mysql2'
+import pkg from 'pg';
+const { Client } = pkg;
 
 const app = express();
 const PORT = 3000;
 
-app.get( '/' , (req,res) => {
-    res.send('emm sever is running ');
-
-}) 
 
 
 
-const connection = mysql.createConnection({
-    host: 'sql7.freesqldatabase.com',
-    user: 'sql7731853',
-    password: 'VP5Fp4wk1H', 
+
+    const client = new Client({
+      user: 'root',
+      host: 'localhost',
+      database: 'node_test',
+      password: 'root',
+      port: 5432,
+    });
   
-  });
+    client.connect()
+  .then(() => console.log('Connected to PostgreSQL'))
+  .catch(err => console.error('Connection error', err.stack));
 
-connection.connect((err) => {
-    if(err){
-        console.log("Error connecting to the database -" + err)
-        return;
-    }
-    console.log('Connected to the MySQL database as ID ' + connection.threadId);
-})
+
+  
+
+    app.get('/data', async (req,res) =>{
+        try {
+            // SQL query to fetch all rows from the table
+            const result = await client.query('SELECT text FROM test');
+            
+            // Send the data as JSON response
+            res.status(200).json(result.rows);
+
+          } catch (error) {
+            console.error('Error fetching data', error);
+            res.status(500).json({ error: 'Failed to retrieve data' });
+          }
+    })
+  
+    
+
 
 
 

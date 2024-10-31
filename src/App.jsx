@@ -4,7 +4,8 @@ import './styles/App.scss'
 import Registration from './pages/Registration'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Market from './pages/Market'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import {auth} from '../firebase.config'
 
@@ -19,12 +20,13 @@ function App() {
     
         <Main/>
       </div> */}
-      
+       
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Register" element={<Registration />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Market" element={<Market />} />
         </Routes>
       </Router> 
    

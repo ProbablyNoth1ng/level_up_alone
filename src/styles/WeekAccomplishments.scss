@@ -1,3 +1,26 @@
+.week__accomplishments{
+    padding-top: 25px;
+    .day__block{
+        text-align: center;
+        width: 300px;
+        height: 400px;
+        border: 2px solid cadetblue;
+        border-radius: 30pxww;
+    }
+}
 .current__day{
     border: solid 2px cyan;
+}
+
+.day__reflection{
+    resize: none;
+    color: black;
+    border-radius: 10px;
+    height: 200px;
+    padding: 10px;
+}
+
+.btn__drop{
+    background-color: transparent !important;
+    color: white !important;
 }

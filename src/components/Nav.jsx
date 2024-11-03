@@ -12,7 +12,9 @@ export default function Nav(){
         <>
             <nav className="nav flex justify-between px-10">
                 <div className="profile__section flex">
-                    <img src={ava} alt="pfp" className="avatar" />
+                    <Link to={'/Profile'}>
+                        <img src={ava} alt="pfp" className="avatar" />
+                    </Link>
                     <div className="text__section pl-3"> 
                         <p className="nickname text-3xl pb-1">Nickname</p>
                         <p className="title text-2xl font-medium pb-1">Title</p>

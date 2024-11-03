@@ -56,9 +56,9 @@ export default function Main(){
    }
 
     function logout() {
-    console.log('loged out')
-     signOut(auth)
-     navigate('/Login')
+        console.log('loged out')
+        signOut(auth)
+        navigate('/Login')
     }
     return (
         <>

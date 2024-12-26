@@ -1,13 +1,17 @@
 import React,{useEffect, useState} from "react";
 import '../styles/Nav.scss'
-import ava from '../assets/80178693d1d0c7e0ec688707b02ecc0b.jpg'
+import ava from '../assets/ava.jpg'
 import coin from '../assets/coin.png'
 import boost from '../assets/boost.png'
 import store from '../assets/shop.png'
 import Market from  '../pages/Market'
 import { Link } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
 
 export default function Nav(){
+    const dispatch = useDispatch()
+    const user = useSelector((state) => state.user.user);
+    console.log(user)
     return (
         <>
             <nav className="nav flex justify-between px-10">
@@ -22,7 +26,7 @@ export default function Nav(){
                         <div className="lvl__bar ">
                     
                             <div className="lvl__bar__fill" style={{width: '30%'}}>
-                                <span className="current__xp pl-3">33 xp</span>
+                                <span className="current__xp pl-3">{33} xp</span>
                                
                             </div>
                             <div className="lvl__bar__total">
@@ -35,7 +39,7 @@ export default function Nav(){
                 <div className="recourses__section flex items-center">
                     <div className="money__section flex items-center ">
                         <img src={coin} alt="money" className="pr-5" />
-                        <p className="text-black text-3xl font-bold">1233</p>
+                        <p className="text-black text-3xl font-bold">{user.balance}</p>
                     </div>
                     <div className="boost__section flex items-center">
                         <img src={boost} alt="boost" className="pr-5" />

@@ -27,7 +27,7 @@ export default function AsideBar(){
                   blocks.map((block) => (
                     (
                         <div className={`block__fast flex justify-center items-center ${block.id}`} > 
-                            <div className={`aside__emoji text-3xl ${block.id}`}>{block.emoji}</div>
+                            <div className={`aside__emoji text-4xl ${block.id}`}>{block.emoji}</div>
                         </div>
                     )
                             

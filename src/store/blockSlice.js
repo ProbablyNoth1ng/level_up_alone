@@ -22,10 +22,11 @@ const blockSlice = createSlice({
             }
         },
         updateBlock(state,action){
-            const {id,changes} = action.payload;
+            const {id,changes} = action.payload; 
             const existingBlock = state.blocks.find((block) => block.id === id);
             if(existingBlock){
                 Object.assign(existingBlock,changes)
+                
             }
         },
         removeBlock(state,action){
